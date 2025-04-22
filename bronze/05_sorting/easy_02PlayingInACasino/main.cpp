@@ -31,7 +31,63 @@ int main()
     //freopen("balancing.out", "w", stdout);
 
     //input method
+    int testcase;
+    cin >> testcase;
+    for(int test = 0; test < testcase; test = test + 1)
+    {
+        int n;
+        int m;
+        cin >> n >> m;
+        vector<vector<long long int>> cards;
+        for(int i = 0; i < n; i = i + 1)
+        {
+            vector<long long int> player_card;
+            for(int j = 0; j < m; j = j + 1)
+            {
+                long long int card;
+                cin >> card;
+                player_card.push_back(card);
+            }
+            cards.push_back(player_card);
+        }
 
+        long long int winnings = 0;
+        for(int j = 0; j < m; j = j + 1)
+        {
+            vector<long long int> sequence;
+            for(int i = 0; i < n; i = i + 1)
+            {
+                sequence.push_back(cards[i][j]);
+            }
+
+            sort(sequence.begin(), sequence.end());
+
+            long long int sum = 0;
+            for(int i = 0; i < n; i = i + 1)
+            {
+                sum = sum + sequence[i];
+            }
+
+            long long int difference = 0;
+            for(int i = 0; i < n; i = i + 1)
+            {
+                if(i == 0)
+                {
+                    sum = sum - (n - i)*(sequence[0]);
+                    difference = difference + sum;
+                }
+                else
+                {
+                    sum = sum - (n - i)*(sequence[i] - sequence[i-1]);
+                    difference = difference + sum;
+                }
+            }
+
+            winnings = winnings + difference;
+        }
+
+        cout << winnings << endl;
+    }
 
     /*
     Solution idea:
