@@ -72,6 +72,7 @@ int main()
             output row_1 + 1
         If size == 2:
             output row_2 + 1
+    I want to do automatic coding on this, but too lazy to think zzz
     */
     set<char> r0 = checkWin(ttt[0][0], ttt[0][1], ttt[0][2]);
     set<char> r1 = checkWin(ttt[1][0], ttt[1][1], ttt[1][2]);
