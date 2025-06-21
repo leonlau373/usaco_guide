@@ -38,9 +38,6 @@ int main()
     sort(pos.begin(),pos.end());
 
     /*
-    After you get the difference, collect how many local maximums
-    are there
-
     Example:
     10
     2 5 7 9 13 18 21 25 30 32
